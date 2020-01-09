@@ -7,7 +7,7 @@ if [[ -z "$SLACK_BOT_TOKEN" ]]; then
 fi
 
 curl -X POST \
-     -H "Content-type: application/json" \
+     -H "Content-type: application/json; charset=utf8" \
      -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
      -d "$*" \
      https://slack.com/api/chat.postMessage
