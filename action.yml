@@ -1,0 +1,15 @@
+name: 'Slack notification'
+description: 'Use a Slack chat bot notification'
+inputs:
+  payload:  # id of input
+    description: 'Slack payload'
+    required: true
+    default: '{"channel": "CHANNEL", "message": "Hello world" }'
+outputs:
+  response: # id of output
+    description: 'The Slack response'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.payload }}

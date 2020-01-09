@@ -6,8 +6,10 @@ if [[ -z "$SLACK_BOT_TOKEN" ]]; then
   exit 1
 fi
 
-curl -X POST \
+RESPONSE="$(curl -X POST \
      -H "Content-type: application/json; charset=utf8" \
      -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
-     -d "$*" \
-     https://slack.com/api/chat.postMessage
+     -d "$1" \
+     https://slack.com/api/chat.postMessage)"
+
+echo ::set-output name=response::$RESPONSE
