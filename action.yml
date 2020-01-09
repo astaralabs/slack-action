@@ -4,12 +4,17 @@ inputs:
   payload:  # id of input
     description: 'Slack payload'
     required: true
-    default: '{"channel": "CHANNEL", "message": "Hello world" }'
+    default: '{"channel": "YOURSLACKCHANNEL", "message": "Hello world" }'
+  slack_bot_token: # SLACK_BOT_TOKEN
+    description: 'Slack bot token'
+    required: true
 outputs:
   response: # id of output
     description: 'The Slack response'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    SLACK_BOT_TOKEN: ${{ inputs.slack_bot_token }}
   args:
     - ${{ inputs.payload }}
