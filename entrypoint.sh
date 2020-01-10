@@ -8,3 +8,5 @@ RESPONSE="$(curl -X POST \
      https://slack.com/api/chat.postMessage)"
 
 echo ::set-output name=response::$RESPONSE
+
+echo $RESPONSE
