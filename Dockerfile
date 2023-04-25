@@ -1,4 +1,3 @@
-
 FROM curlimages/curl:7.68.0
 
 LABEL "com.github.actions.name"="Post Slack messages"
